@@ -2,7 +2,6 @@
   <div class="container">
     <h2>
       <%= @cocktail.name %>
-      <%= link_to "Add a Dose", new_cocktail_dose_path(@cocktail), class:"btn btn-success" %>
     </h2>
     <br>
     <br>
@@ -18,11 +17,5 @@
   </div>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
 </div>
