@@ -21,9 +21,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <%= link_to "Home", cocktails_path, class:"nav-link" %>
-            </li>
+            <form action="/cocktails" method="get">
+             <div class="d-flex">
+              <input type="text" placeholder="Search" name="search" class="input-group-text mx-2">
+              <input type="submit" class="btn btn-outline-success mx-2" value="Search">
+             </div>
+            </form>
             <li class="nav-item">
               <%= link_to "Create a new Cocktail", new_cocktail_path, class:"nav-link" %>
             </li>
