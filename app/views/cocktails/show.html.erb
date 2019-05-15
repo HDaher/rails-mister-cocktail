@@ -1,14 +1,17 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1509448613959-44d527dd5d86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=720&q=80);">
+<div class="banner" style="background-image: url(https://images.unsplash.com/photo-1505562130589-9879683e72da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);">
   <div class="container">
-    <h2>
+    <h2 class="text-center">
       <%= @cocktail.name %>
     </h2>
     <br>
+    <div class="d-flex justify-content-center my-3">
+      <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill, class:"rounded-lg" %>
+    </div>
     <br>
     <br>
     <div class="d-flex justify-content-between">
       <% @cocktail.doses.each do |dose| %>
-        <p>
+        <p class="text-dark bold">
           <%= dose.ingredient.name %> : <%= dose.description %>
           <%= link_to "Remove Dose", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger mx-2"%>
         </p>
@@ -17,5 +20,9 @@
   </div>
   <br>
   <br>
-  <%= render "doses/new", cocktail: @cocktail, dose: @dose %>
 </div>
+<%= render "doses/new", cocktail: @cocktail, dose: @dose %>
+<br>
+<br>
+<br>
+<br>
