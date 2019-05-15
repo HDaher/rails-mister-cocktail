@@ -2,6 +2,7 @@
   <div class="container">
     <h2 class="text-center">
       <%= @cocktail.name %>
+      <%= link_to "Write a review", new_cocktail_review_path(@cocktail), class:"btn btn-success mx-2" %>
     </h2>
     <br>
     <div class="d-flex justify-content-center my-3">
@@ -16,6 +17,16 @@
           <%= link_to "Remove Dose", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger mx-2"%>
         </p>
       <% end %>
+    </div>
+    <br>
+    <br>
+    <div>
+      <h5 class="text-primary bolder">User Reviews:</h5>
+      <ul>
+        <% @cocktail.reviews.each do |review| %>
+        <li class="font-italic text-danger"><%= review.content %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
   <br>
